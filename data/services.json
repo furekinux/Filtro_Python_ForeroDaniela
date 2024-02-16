@@ -1,0 +1,5 @@
+[
+    {"id_ser":1,"name":"fibra optica","info":"none","stock":99},
+    {"id_ser":2,"name":"plan prepago","info":"none","stock":10},
+    {"id_ser":3,"name":"plan pospago","info":"none","stock":1}
+]
