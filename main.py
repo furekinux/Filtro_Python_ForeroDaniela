@@ -97,17 +97,13 @@ while booo:
         while booo:
             menu_serv=int(input("\n\n---Gestion de servicios y productos---\n  1. Listado \n  2. listado con descripcion \n  3. Buscar servicio especifico\n"))
             servicios=open("data/services.json")
-            serrevivi=json.loads(servicios)
+            serrevivi=json.load(servicios)
             if menu_serv==1:
                 print("\n\n---Listado de servicios y productos---\n")
                 for i in range(len(serrevivi)):
-                    a=serrevivi[i]["id"]
+                    a=serrevivi[i]["id_ser"]
                     b=serrevivi[i]["name"]
-                    print(f"ID: {a} Nombre: {b}\n")
-                    
-                    
-            
-            
+                    print(f"ID: {a}\nNombre: {b}\n")
             desvivir=str(input("\nVolver a gestion de servicios? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
@@ -117,7 +113,15 @@ while booo:
         while booo:
             main_rep=int("---Reportes---\n  1. Productos Disponibles \n  2. Servicios Disponibles \n  3. Servicios/Productos mas populares\n  4. Usuarios segun servicio\n")
             if main_rep==1:
-                
+                servicios=open("data/services.json")
+                serrevivi=json.loads(servicios)
+                if menu_serv==1:
+                    print("\n\n---Listado de servicios y productos---\n")
+                    for i in range(len(serrevivi)):
+                        a=serrevivi[i]["id"]
+                        b=serrevivi[i]["name"]
+                        print(f"ID: {a} Nombre: {b}\n")
+            
             desvivir=str(input("\nVolver al menu de reportes? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
