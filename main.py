@@ -67,6 +67,7 @@ while booo:
                     
                     with open("data/users.json","r") as AAA:
                         clicli=json.loads(AAA)
+                    new_user=clicli
                     
                     new_user={
                             "id":new_id,
@@ -84,6 +85,17 @@ while booo:
                     desvivir=str(input("\nRegistrar otro usuario? y/n\n"))
                     if desvivir=="N" or desvivir=="n":
                         break
+            if menu_users==5:
+                print("\n---Lista Clientes---\n")
+                for i in range(len(clientes)):
+                    print(clientes[i])
+                    print("\n")
+                user_es=int(input("Que usuario va a editar segun su ID?"))
+                for item in clientes:
+                    if item["id"]==user_es:
+                        
+                    
+            
             desvivir=str(input("\nVolver a gestion de usuarios? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
