@@ -11,31 +11,29 @@ while booo:
     if menu_ad==1:
 
         while booo:
-            menu_users=int(input("\n\n---Gestion de usuarios---\n  1. Listado \n  2. Servicios contratados \n  3. Bonificaciones \n  4. Registrar nuevo usuario \n"))
+            menu_users=int(input("\n\n---Gestion de usuarios---\n  1. Listado \n  2. Servicios contratados \n  3. Bonificaciones \n  4. Registrar nuevo usuario \n  5. Modificar usuario \n"))
+
 
             if menu_users==1: ##============================CHECK=====================================
                 print("\n\n---Listado de usuarios---\n")
                 for i in range(len(clientes)):
                     print(clientes[i])
                     print("\n")
-
             if menu_users==2:##============================CHECK=====================================
                 servivi="data/services.json"
                 with open(servivi, "r") as hihi:
                     services=json.load(hihi)
                 print("\n\n---Servicios/Productos contratados por los usuarios---\n")
                 for i in range(len(clientes)):
-                    print(clientes[i]) 
+                    print(clientes[i])
                     print("\nServicios/Productos: ")
                     for j in range(len(services)):
                         for item in clientes[i]["services"]:
                             if item==services[j]["id_ser"]:
                                 print(services[j]["name"])
                     print("\n")
-
             if menu_users==3: ##============================CHECK=====================================
                 bonbon=int(input("\n\n---Bonificaciones---\n  1. Usuarios con bonificacion \n  2. Usuarios sin bonificacion \n"))
-
                 while booo:
                     if bonbon==1:
                         print("\n\n---Listado de usuarios con bonificacion---\n")
@@ -43,34 +41,43 @@ while booo:
                             if clientes[i]["lealtad"]>=10:
                                 print(clientes[i])
                                 print("Este usuario tiene bonificacion de lealtad por ser cliente durante ",clientes[i]["lealtad"]," años\n")
-                    
+                                json.dumps()
                     if bonbon==2:
                         print("\n\n---Listado cuanto le falta al usuario para obtener bonificacion---\n")
                         for i in range(len(clientes)):
                             if clientes[i]["lealtad"]<10:
                                 print(clientes[i])
                                 print("Este usuario no tiene bonificacion de lealtad.Podra obtenerlo en ",10-clientes[i]["lealtad"]," años.\n")
-                    
                     desvivir=str(input("\nVolver a menu de bonificacioner? y/n\n"))
                     if desvivir=="N" or desvivir=="n":
                         break
+
+
             if menu_users==4:
                 while booo:
                     new_id=int(input("\n>Ingrese el # de identificacion: "))
                     new_name=str(input("\n>Ingrese el primer nombre: "))
                     new_sec_name=str(input("\n>Ingrese el primer apellido: "))
                     new_num=int(input("\n>Ingrese el numero de telefono: "))
-                    new_loc=str(input("\n>Ingrese el numero de telefono: "))
+                    new_loc=str(input("\n>Ingrese la direccion: "))
                     
-                    new_user={"id":new_id,
+                    with open("data/users.json","r") as AAA:
+                        clicli=json.loads(AAA)
+                    
+                    new_user={
+                            "id":new_id,
                             "name":new_name,
                             "sec_name":new_sec_name,
                             "num_cel":new_num,
                             "direccion":new_loc,
                             "services":[],
-                            "lealtad":0},
+                            "lealtad":0
+                            }
                     
-                    desvivir=str(input("\nVolver a menu de bonificacioner? y/n\n"))
+                    with open("data/users.json","w") as AAA:
+                        clicli=json.dumps(new_user)
+                    
+                    desvivir=str(input("\nRegistrar otro usuario? y/n\n"))
                     if desvivir=="N" or desvivir=="n":
                         break
             desvivir=str(input("\nVolver a gestion de usuarios? y/n\n"))
