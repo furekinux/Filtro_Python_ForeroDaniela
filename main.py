@@ -91,11 +91,17 @@ while booo:
                     print(clientes[i])
                     print("\n")
                 user_es=int(input("Que usuario va a editar segun su ID?"))
-                for item in clientes:
+                for i in range(clientes):
                     if item["id"]==user_es:
-                        
-                    
-            
+                        with open("data/users.json","r") as hola:
+                            editus=json.loads(hola)
+                        user_change=editus[i]
+                        choice=int(input("Que va a cambiarle al usuario",editus[i],"\n  1. Nombre\n  2. Apellido\n  3. Numero celular\n  4. Direccion\n  5. Servicios\n"))
+                        if choice==1:
+                            uwu=str(input("Ingrese el nuevo:"))
+                            user_change["name"]=
+                            with open("data/users.json","w") as hola:
+                                editus=json.loads(user_change,hola)
             desvivir=str(input("\nVolver a gestion de usuarios? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
