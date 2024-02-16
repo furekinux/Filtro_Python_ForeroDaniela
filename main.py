@@ -103,7 +103,7 @@ while booo:
                 for i in range(len(serrevivi)):
                     a=serrevivi[i]["id_ser"]
                     b=serrevivi[i]["name"]
-                    print(f"ID: {a}\nNombre: {b}\n")
+                    print(f"{i}|| ID: {a}\nNombre: {b}\n||")
             desvivir=str(input("\nVolver a gestion de servicios? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
