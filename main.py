@@ -39,9 +39,14 @@ while booo:
                         print("\n\n---Listado de usuarios con bonificacion---\n")
                         for i in range(len(clientes)):
                             if clientes[i]["lealtad"]>=10:
-                                print(clientes[i])
+                                print(clientes[i]) ##Miercoles ;_;
                                 print("Este usuario tiene bonificacion de lealtad por ser cliente durante ",clientes[i]["lealtad"]," años\n")
-                                json.dumps()
+                                with open("data/asesor.json","r") as estres:
+                                    soy_unalis=json.loads(estres)
+                                    holiwis=[clientes[i]]
+                                    soy_unalis.append(holiwis)
+                                with open("data/asesor.json","w"):
+                                    json.dumps(soy_unalis)
                     if bonbon==2:
                         print("\n\n---Listado cuanto le falta al usuario para obtener bonificacion---\n")
                         for i in range(len(clientes)):
@@ -52,8 +57,7 @@ while booo:
                     if desvivir=="N" or desvivir=="n":
                         break
 
-
-            if menu_users==4:
+            if menu_users==4: ##Borra jsons :(
                 while booo:
                     new_id=int(input("\n>Ingrese el # de identificacion: "))
                     new_name=str(input("\n>Ingrese el primer nombre: "))
@@ -84,7 +88,6 @@ while booo:
             if desvivir=="N" or desvivir=="n":
                 break
 
-
     elif menu_ad==2:
         ##HABLAR DE SERVICIOS +LISTADO
         ##- Operaciones CRUD para cada tipo de servicio ofrecido, como Internet de Fibra Óptica, planes pospago, prepago, etc.
@@ -92,19 +95,32 @@ while booo:
         ##- Registro de información detallada sobre cada servicio, incluyendo características, precios, entre otros.
         
         while booo:
-            menu_serv=int(input("\n\n---Gestion de usuarios---\n  1. Listado \n  2. Servicios contratados \n  3. Bonificaciones \n"))
+            menu_serv=int(input("\n\n---Gestion de servicios y productos---\n  1. Listado \n  2. listado con descripcion \n  3. Buscar servicio especifico\n"))
+            servicios=open("data/services.json")
+            serrevivi=json.loads(servicios)
+            if menu_serv==1:
+                print("\n\n---Listado de servicios y productos---\n")
+                for i in range(len(serrevivi)):
+                    a=serrevivi[i]["id"]
+                    b=serrevivi[i]["name"]
+                    print(f"ID: {a} Nombre: {b}\n")
+                    
+                    
             
             
-            
-            desvivir=str(input("\nVolver a gestion de usuarios? y/n\n"))
+            desvivir=str(input("\nVolver a gestion de servicios? y/n\n"))
             if desvivir=="N" or desvivir=="n":
                 break
 
     elif menu_ad==3:
         ##SERVICIOS OFRECIDOS POR LA EMPRESA
         while booo:
-            main_rep=int("---Menu de Reportes---\n  1. Productos Disponibles \n  2. Servicios Disponibles \n  3. Servicios/Productos mas populares\n  4. Usuarios segun servicio\n")
-
+            main_rep=int("---Reportes---\n  1. Productos Disponibles \n  2. Servicios Disponibles \n  3. Servicios/Productos mas populares\n  4. Usuarios segun servicio\n")
+            if main_rep==1:
+                
+            desvivir=str(input("\nVolver al menu de reportes? y/n\n"))
+            if desvivir=="N" or desvivir=="n":
+                break
     desvivir=str(input("\nFinalizar programa? y/n\n"))
     if desvivir=="y" or desvivir=="Y":
         break
